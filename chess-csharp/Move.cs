@@ -35,16 +35,16 @@ namespace chess_csharp
 			switch (PlayerTurn)
 			{
 				case 1:
-					Console.WriteLine("Light's TURN");
+					Console.WriteLine("Light's TURN. Please select light pawn.(P)");
 					getInput();
 					if (!Exit)
 					{
 						rearangePawns();
 					}
-					PlayerTurn = 2; // prepare for next opponent turn
+					PlayerTurn = 2;
 					break;
 				case 2:
-					Console.WriteLine("Dark's TURN");
+					Console.WriteLine($"Dark's TURN. Please select dark pawn.({'\u00B6'})");
 					getInput();
 					if (!Exit)
 					{

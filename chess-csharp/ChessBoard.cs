@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
+using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,23 +28,35 @@ namespace chess_csharp
 			while (!move.Exit)
 			{
 				Console.Clear();
-				Console.WriteLine("    0   1   2   3  4  5  6  7");
+				Console.WriteLine("    0   1   2   3   4   5   6   7");
 				for(int rows = 0; rows < DIMENSION; rows++)
 				{
 					Console.Write("  ");
 					for(int cols = 0; cols < DIMENSION; cols++)
 					{
-						Console.WriteLine(ChessBoardHorizontalSymbol);
+						Console.Write(ChessBoardHorizontalSymbol);
 					}
 					Console.Write("+\n");
 
 					for (int cols = 0; cols < DIMENSION; cols++)
 					{
-						Console.Write($"{rows}  ");
+						if(cols == 0)
+						{
+							Console.Write($"{rows} ");
+						}
+		
 						Console.Write(ChessBoardVerticalSymbol + Pawn.pawns[rows, cols] + " ");
 					}
 					Console.Write("|\n");
 				}
+
+				Console.Write("  ");
+				for(int cols = 0; cols < DIMENSION; cols++)
+				{
+					Console.Write(ChessBoardHorizontalSymbol);
+				}
+
+				Console.Write("+\n\n");
 			}
 		}
 

@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace chess_csharp
 {
-	internal class Pawn
+	public class Pawn
 	{
+		public const char PAWN_SYMBOL = 'X';
+		public const char SPACE = ' ';
+		public static char[,] pawns;
+
+		public Pawn()
+		{
+			pawns = new char[ChessBoard.DIMENSION, ChessBoard.DIMENSION];
+		}
+
 	}
 }

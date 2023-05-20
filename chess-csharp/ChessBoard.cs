@@ -20,7 +20,7 @@ namespace chess_csharp
 			move = new Move();
 			chessBoard = new string[DIMENSION, DIMENSION];
 			ChessBoardHorizontalSymbol = "+---";
-			ChessBoardVerticalSymbol = "|  ";
+			ChessBoardVerticalSymbol = "| ";
 		}
 
 		public void displayChessBoard()
@@ -49,14 +49,13 @@ namespace chess_csharp
 					}
 					Console.Write("|\n");
 				}
-
 				Console.Write("  ");
 				for(int cols = 0; cols < DIMENSION; cols++)
 				{
 					Console.Write(ChessBoardHorizontalSymbol);
 				}
-
 				Console.Write("+\n\n");
+				move.MakeMove();
 			}
 		}
 

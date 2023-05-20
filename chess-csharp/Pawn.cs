@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,7 +29,8 @@ namespace chess_csharp
 					if (rows == ChessBoard.DIMENSION - 7)
 					{
 						pawns[rows, cols] = PAWN_SYMBOL_LIGHT;
-					}else if(rows == ChessBoard.DIMENSION - 2)
+					}
+					else if (rows == ChessBoard.DIMENSION - 2)
 					{
 						pawns[rows, cols] = PAWN_SYMBOL_DARK;
 					}

@@ -30,6 +30,8 @@ namespace chess_csharp
 
 		public void MakeMove()
 		{
+			double distancePawn = Math.Sqrt(Math.Pow(targetX - destinationX, 2) - Math.Pow(targetY - destinationY, 2));
+
 			switch (PlayerTurn)
 			{
 				case 1:
@@ -39,7 +41,7 @@ namespace chess_csharp
 					{
 						rearangePawns();
 					}
-					PlayerTurn = 2; // prepare for opponent turn
+					PlayerTurn = 2; // prepare for next opponent turn
 					break;
 				case 2:
 					Console.WriteLine("Dark's TURN");
@@ -78,11 +80,13 @@ namespace chess_csharp
 				Console.WriteLine("Enter Destination's Y axis");
 				Exit = validateInput(int.TryParse(Console.ReadLine(), out destinationY));
 			}
+
 		}
 
 		private bool validateInput(bool parsed)
 		{
 			bool error = false;
+			
 
 			if (!parsed)
 			{
@@ -109,5 +113,25 @@ namespace chess_csharp
 			pawns[targetX, targetY] = SPACE;
 		}
 
+		private void ValidatePawnMoveRule(int x, int y, int xd, int yd)
+		{
+			double distance = Math.Sqrt(Math.Pow(xd - x, 2) - Math.Pow(yd - y, 2));
+			for (int i = 0; i < ChessBoard.DIMENSION; i++)
+			{
+				for (int j = 0; j < ChessBoard.DIMENSION; j++)
+				{
+					if (distance > 2 && (x == ChessBoard.DIMENSION - 7 && y == ChessBoard.DIMENSION - 7))
+					{
+						Console.WriteLine("Illegal move for a pawn from initial position");
+						break;
+					}
+					else if (distance > 2 && (x == ChessBoard.DIMENSION - 2 && y == ChessBoard.DIMENSION - 2))
+					{
+						Console.WriteLine("Illegal move for a pawn from initial position");
+						break;
+					}
+				}
+			}
+		}
 	}
 }

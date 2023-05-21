@@ -31,7 +31,6 @@ namespace chess_csharp
 		public void MakeMove()
 		{
 			double distancePawn = Math.Sqrt(Math.Pow(targetX - destinationX, 2) - Math.Pow(targetY - destinationY, 2));
-
 			switch (PlayerTurn)
 			{
 				case 1:
